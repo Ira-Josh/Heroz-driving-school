@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroz Driving School - Edmonton's Premier Driving Education</title>
+    <link rel="icon" href="Heroz driving school logo.png" type="image/png">
+    <link rel="preload" href="Heroz driving school logo.png" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #2a6ec6;
+            --accent-yellow: #E86C0D;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(26, 75, 140, 0.8)), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--dark-gray);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e6b90a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: var(--dark-gray);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--accent-yellow);
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* About */
+        .about {
+            background-color: var(--light-gray);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        .testimonials .section-title h2 {
+            color: var(--white);
+        }
+        
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        .pricing-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        
+        .pricing-body {
+            padding: 30px;
+        }
+        
+        .pricing-body ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-body ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: var(--light-gray);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 20px;
+            color: var(--secondary-blue);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--secondary-blue);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-yellow);
+            color: var(--dark-gray);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+        }
+
+        /* Google Calendar Button Styles */
+        .gc-calendar-button {
+            background-color: var(--accent-yellow) !important;
+            color: var(--dark-gray) !important;
+            border-radius: 5px !important;
+            padding: 12px 30px !important;
+            font-weight: bold !important;
+            transition: all 0.3s !important;
+            border: none !important;
+            cursor: pointer !important;
+            font-family: 'Arial', sans-serif !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            margin: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+        }
+
+
+        .gc-calendar-button:hover {
+            background-color: #e6b90a !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+            color: var(--dark-gray) !important;
+        }
+
+        .hero-buttons .gc-calendar-button {
+            margin-bottom: 15px !important;
+            display: inline-block !important;
+        }
+
+        .service-content .gc-calendar-button {
+            width: 100% !important;
+            text-align: center !important;
+            display: block !important;
+            margin-top: 10px !important;
+        }
+
+        .pricing-body .gc-calendar-button {
+            width: 100% !important;
+            margin-top: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="Heroz driving school logo.png" alt="Heroz Driving School Logo" class="logo-img">
+            </a>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Edmonton's Premier Driving School</h1>
+                <p>Get your driver's license with confidence. Our certified instructors provide personalized lessons to help you become a safe and skilled driver.</p>
+                <div class="hero-buttons">
+                    <!-- Google Calendar Appointment Scheduling begin 
+                     
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                    (function() {
+                    var target = document.currentScript;
+                    window.addEventListener('load', function() {
+                        calendar.schedulingButton.load({
+                        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                        color: '#e86c0d',
+                        label: "Book now",
+                        target,
+                        });
+                    });
+                    })();
+                    </script>
+                     end Google Calendar Appointment Scheduling --> 
+                    <a href="#pricing" class="btn btn-secondary">View Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive driving education programs tailored to your needs and skill level.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beginner Driving Lessons">
+                    </div>
+                    <div class="service-content">
+                        <h3>Beginner Driving Lessons</h3>
+                        <p>Perfect for new drivers. Learn the fundamentals of vehicle control, traffic laws, and defensive driving techniques.</p>
+                        <!-- Google Calendar Appointment Scheduling begin -->
+                         
+                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                        <script>
+                        (function() {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function() {
+                            calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                            color: '#e86c0d',
+                            label: "Book Beginner Lesson",
+                            target,
+                            });
+                        });
+                        })();
+                        </script>
+                        <!-- end Google Calendar Appointment Scheduling -->
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Road Test Preparation">
+                    </div>
+                    <div class="service-content">
+                        <h3>Road Test Preparation</h3>
+                        <p>Get ready for your official road test with mock exams and personalized feedback from our experienced instructors.</p>
+                        <!-- Google Calendar Appointment Scheduling begin -->
+                         
+                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                        <script>
+                        (function() {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function() {
+                            calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                            color: '#e86c0d',
+                            label: "Book Road Test Prep",
+                            target,
+                            });
+                        });
+                        })();
+                        </script>
+                        <!-- end Google Calendar Appointment Scheduling -->
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Refresher Courses">
+                    </div>
+                    <div class="service-content">
+                        <h3>Refresher Courses</h3>
+                        <p>For experienced drivers who want to brush up on their skills or gain confidence after a break from driving.</p>
+                        <!-- Google Calendar Appointment Scheduling begin -->
+                         
+                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                        <script>
+                        (function() {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function() {
+                            calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                            color: '#e86c0d',
+                            label: "Book Refresher Course",
+                            target,
+                            });
+                        });
+                        })();
+                        </script>
+                        <!-- end Google Calendar Appointment Scheduling -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Heroz Driving School</h2>
+                    <p>Founded in 2010, Heroz Driving School has been helping Edmonton residents become safe and confident drivers for over a decade. Our mission is to provide high-quality driver education that emphasizes safety, responsibility, and skill.</p>
+                    <p>All our instructors are certified by Alberta Transportation and have undergone rigorous training to ensure they can provide the best possible instruction to our students.</p>
+                    <p>We pride ourselves on our patient, professional approach and our commitment to helping every student reach their full potential as a driver.</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Heroz Driving School Instructor">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+                <p>Don't just take our word for it. Here's what our graduates have to say about their experience.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"I was so nervous about learning to drive, but my instructor at Heroz was incredibly patient and supportive. They made me feel comfortable behind the wheel and I passed my road test on the first try!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        <div class="author-info">
+                            <h4>Sarah J.</h4>
+                            <p>Graduate, Class of 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The road test preparation course was exactly what I needed. The mock tests helped me identify my weak spots and my instructor gave me targeted practice to improve. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>Graduate, Class of 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"After not driving for 15 years, I needed a refresher. Heroz made me feel confident again with their patient approach and practical lessons. Now I'm back on the road safely."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
+                        <div class="author-info">
+                            <h4>Lisa M.</h4>
+                            <p>Refresher Course Graduate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Pricing</h2>
+                <p>Affordable packages tailored to your learning needs. All prices in CAD.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic Package</h3>
+                        <div class="price">$499<span> + GST</span></div>
+                        <p>Perfect for beginners</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li>10 hours of in-car instruction</li>
+                            <li>2 hours of classroom theory</li>
+                            <li>Basic vehicle control</li>
+                            <li>City driving fundamentals</li>
+                        </ul>
+                        <!-- Google Calendar Appointment Scheduling begin -->
+                         
+                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                        <script>
+                        (function() {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function() {
+                            calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                            color: '#e86c0d',
+                            label: "Enroll in Basic Package",
+                            target,
+                            });
+                        });
+                        })();
+                        </script>
+                        <!-- end Google Calendar Appointment Scheduling -->
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Standard Package</h3>
+                        <div class="price">$799<span> + GST</span></div>
+                        <p>Our most popular option</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li>20 hours of in-car instruction</li>
+                            <li>5 hours of classroom theory</li>
+                            <li>Highway driving included</li>
+                            <li>Parallel parking mastery</li>
+                            <li>1 mock road test</li>
+                        </ul>
+                        <!-- Google Calendar Appointment Scheduling begin -->
+                         
+                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                        <script>
+                        (function() {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function() {
+                            calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                            color: '#e86c0d',
+                            label: "Enroll in Standard Package",
+                            target,
+                            });
+                        });
+                        })();
+                        </script>
+                        <!-- end Google Calendar Appointment Scheduling -->
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium Package</h3>
+                        <div class="price">$1099<span> + GST</span></div>
+                        <p>Complete preparation</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li>30 hours of in-car instruction</li>
+                            <li>10 hours of classroom theory</li>
+                            <li>All driving conditions</li>
+                            <li>Advanced maneuvers</li>
+                            <li>2 mock road tests</li>
+                            <li>Road test accompaniment</li>
+                        </ul>
+                        <!-- Google Calendar Appointment Scheduling begin -->
+                         
+                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                        <script>
+                        (function() {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function() {
+                            calendar.schedulingButton.load({
+                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bd6aIE8GbpgZHjiUqUUTaxNL7d6rGxrcEdpolxPkQe7tlfSgn_IIzR7VMRB4ZirQS5krnGY1g?gv=true',
+                            color: '#e86c0d',
+                            label: "Enroll in Premium Package",
+                            target,
+                            });
+                        });
+                        })();
+                        </script>
+                        <!-- end Google Calendar Appointment Scheduling -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Ready to start your driving journey? Get in touch with us today.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Driving Ave NW, Edmonton, AB T5J 2Z1</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(780) 555-1234</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@herozdrivingschool.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Monday - Friday: 8am - 8pm<br>Saturday - Sunday: 9am - 5pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Heroz Driving School</h3>
+                    <p>Edmonton's premier driving education provider since 2010. Committed to creating safe, confident drivers through professional instruction.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Beginner Lessons</a></li>
+                        <li><a href="#services">Road Test Prep</a></li>
+                        <li><a href="#services">Refresher Courses</a></li>
+                        <li><a href="#services">Defensive Driving</a></li>
+                        <li><a href="#services">Winter Driving</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Heroz Driving School. All Rights Reserved. Serving Edmonton and surrounding areas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    document.querySelector('nav ul').classList.remove('show');
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.style.boxShadow = window.scrollY > 100 
+                ? '0 2px 10px rgba(0, 0, 0, 0.2)' 
+                : '0 2px 10px rgba(0, 0, 0, 0.1)';
+        });
+    </script>
+    <div id="cookie-consent" class="cookie-consent">
+        <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
+        <button id="accept-cookies" class="btn btn-primary">Accept</button>
+        <a href="/privacy-policy" class="btn btn-secondary">Learn More</a>
+      </div>
+      
+      <style>
+        .cookie-consent {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: var(--dark-gray);
+          color: white;
+          padding: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          z-index: 9999;
+        }
+        
+        .cookie-consent p {
+          margin-right: 20px;
+          flex: 1;
+          min-width: 250px;
+          margin-bottom: 10px;
+        }
+        
+        .cookie-consent .btn {
+          margin: 5px;
+        }
+        
+        @media (max-width: 768px) {
+          .cookie-consent {
+            flex-direction: column;
+            text-align: center;
+          }
+          
+          .cookie-consent p {
+            margin-right: 0;
+            margin-bottom: 15px;
+          }
+        }
+      </style>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const consentBanner = document.getElementById('cookie-consent');
+          const acceptBtn = document.getElementById('accept-cookies');
+          
+          // Check if consent was already given
+          if (!localStorage.getItem('cookiesAccepted')) {
+            consentBanner.style.display = 'flex';
+          }
+          
+          acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            consentBanner.style.display = 'none';
+          });
+        });
+      </script>
+
+<div class="promo-modal" id="promoModal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>Summer Driving Special!</h3>
+      <p>All new students get a free driving manual and 5% discount when booking before July 15th.</p>
+      <div class="modal-buttons">
+        <a href="#pricing" class="btn btn-primary">View Packages</a>
+      <!-- <button class="btn btn-secondary close-modal-btn">Maybe Later</button> --> 
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .promo-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 500px;
+      position: relative;
+      text-align: center;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .modal-content {
+        width: 90%;
+      }
+      
+      .modal-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+  
+  <script>
+    // Show modal on page load (once per session)
+    document.addEventListener('DOMContentLoaded', function() {
+      if(!sessionStorage.getItem('modalShown')) {
+        setTimeout(function() {
+          document.getElementById('promoModal').style.display = 'flex';
+        }, 3000); // Show after 3 seconds
+      }
+    });
+    
+    // Close modal handlers
+    document.querySelectorAll('.close-modal, .close-modal-btn').forEach(el => {
+      el.addEventListener('click', function() {
+        document.getElementById('promoModal').style.display = 'none';
+        sessionStorage.setItem('modalShown', 'true');
+      });
+    });
+  </script>
+</body>
+</html>
